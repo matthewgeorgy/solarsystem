@@ -1,6 +1,18 @@
+#include "../include/glad/glad.h"
 #include "../include/solarsystem.h"
 #include "../include/planet.hpp"
 #include "../include/model.h"
+#include "../include/imgui/imgui.h"
+#include "../include/imgui/imgui_impl_glfw.h"
+#include "../include/imgui/imgui_impl_opengl3.h"
+#include "../include/stb_image.h"
+
+extern f32 ss_time;
+extern f32 ss_time_factor;
+extern f32 ss_rot_factor;
+extern bool imgui_control;
+extern bool sim_running;
+extern camera_t ss_camera;
 
 int
 main(void)
@@ -238,6 +250,9 @@ main(void)
         glEnableVertexAttribArray(2 + i);
         glVertexAttribDivisor(2 + i, 1);
     }
+
+    free(astbelt_inst_matrices);
+    free(ring_inst_matrices);
     
     /////////////////////////////////////////////////////////////////////////
     // SKYBOX
