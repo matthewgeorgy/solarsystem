@@ -4,11 +4,11 @@
 #include "GLFW/glfw3.h"
 #include "mmath.h"
 
-#define SCR_WIDTH   		1280
-#define SCR_HEIGHT  		720
-#define RING_AMOUNT 		65000
-#define AST_BELT_AMOUNT 	3000
-#define m_pi        		3.141592654f
+#define SCR_WIDTH			1280
+#define SCR_HEIGHT			720
+#define RING_AMOUNT			65000
+#define AST_BELT_AMOUNT		3000
+#define m_pi				3.141592654f
 
 /////////////////////////////////////////////////////////////////////////
 // CAMERA

@@ -10,12 +10,12 @@ extern bool sim_running;
 extern camera_t ss_camera;
 
 planet_t::planet_t(f32 distance,
-				   f32 orb_period,
-				   f32 radius,
+                   f32 orb_period,
+                   f32 radius,
                    usize indices,
-				   const char *texture,
+                   const char *texture,
                    f32 tilt_angle,
-				   f32 rot_speed)
+                   f32 rot_speed)
 {
     this->distance = distance;
     this->orb_period = orb_period;
@@ -39,7 +39,7 @@ planet_t::update_pos(void)
 
 void
 planet_t::render(u32 vao,
-				 u32 shader)
+                 u32 shader)
 {
     if (this->should_render)
     {

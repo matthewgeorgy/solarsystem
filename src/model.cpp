@@ -32,7 +32,7 @@ model_t::load_model(std::string path)
 
 void
 model_t::process_node(aiNode *node,
-					  const aiScene *scene)
+                      const aiScene *scene)
 {
     // process all the node's meshes (if any)
     for (u32 i = 0; i < node->mNumMeshes; i++)

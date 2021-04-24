@@ -21,8 +21,8 @@ camera_t ss_camera;
 
 void 
 framebuffer_size_callback(GLFWwindow *window,
-						  s32 width,
-						  s32 height)
+                          s32 width,
+                          s32 height)
 {
     glViewport(0, 0, width, height);
 }
@@ -73,8 +73,8 @@ process_input(GLFWwindow *window)
 
 void
 mouse_callback(GLFWwindow *window,
-			   f64 x_pos,
-			   f64 y_pos)
+               f64 x_pos,
+               f64 y_pos)
 {
     static bool first_mouse = true;
     static f64 yaw = -90.0f;
@@ -137,7 +137,7 @@ ss_glfw_init(void)
         return NULL;
     }
     glfwMakeContextCurrent(window);
-	glfwSwapInterval(0);
+    glfwSwapInterval(0);
     glfwSetFramebufferSizeCallback(window, &framebuffer_size_callback);
     glfwSetCursorPosCallback(window, &mouse_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -277,7 +277,7 @@ load_texture(const char *filename)
     glCreateTextures(GL_TEXTURE_2D, 1, &texture_id);
     glBindTextureUnit(0, texture_id);
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);   
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

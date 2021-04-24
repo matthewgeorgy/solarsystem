@@ -2,7 +2,7 @@
 #include "../include/mesh.h"
 
 mesh_t::mesh_t(std::vector<vertex_t> vertices,
-			   std::vector<u32> indices)
+               std::vector<u32> indices)
 {
     this->vertices = vertices;
     this->indices = indices;
@@ -32,11 +32,11 @@ mesh_t::setup_mesh()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
 
     // vertex positions
-    glEnableVertexAttribArray(0);	
+    glEnableVertexAttribArray(0);   
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,
                           sizeof(vertex_t), (void *)0);
     // vertex normals
-    glEnableVertexAttribArray(1);	
+    glEnableVertexAttribArray(1);   
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 
                           sizeof(vertex_t), (void *)offsetof(vertex_t, normal));
 }

@@ -79,13 +79,13 @@ mat4_t      mat4_scale(f32 scale_value);
 mat4_t      mat4_mult(mat4_t m1, mat4_t m2);
 
 /* ============================ *
- * =====      MISC		  ===== *
+ * =====      MISC        ===== *
  * ============================ */
 
-u32			m_randi(u32 index);
-f32			m_randf(u32 index);
-f32			m_sqrt(f32 number);
-f32			m_isqrt(f32 number);
+u32         m_randi(u32 index);
+f32         m_randf(u32 index);
+f32         m_sqrt(f32 number);
+f32         m_isqrt(f32 number);
 
 ////////////////////////////////////////////////////////////////////////////////
 // ====== MMATH IMPLEMENTATION ================================================/
@@ -142,7 +142,7 @@ vec2_mag(vec2_t vec)
 vec2_t      
 vec2_normalize(vec2_t vec)
 {
-	f32 val = m_isqrt((vec.x * vec.x) + (vec.y * vec.y));
+    f32 val = m_isqrt((vec.x * vec.x) + (vec.y * vec.y));
 
     vec.x *= val;
     vec.y *= val;
@@ -229,7 +229,7 @@ vec3_mag(vec3_t vec)
 vec3_t 
 vec3_normalize(vec3_t vec)
 {
-	f32 val = m_isqrt((vec.x * vec.x) + (vec.y * vec.y) + (vec.z * vec.z));
+    f32 val = m_isqrt((vec.x * vec.x) + (vec.y * vec.y) + (vec.z * vec.z));
 
     vec.x *= val;
     vec.y *= val;
@@ -473,49 +473,49 @@ mat4_mult(mat4_t m1,
 u32
 m_randi(u32 index)
 {
-	index = (index << 13) ^ index;
-	return ((index * (index * index * 15731 + 789221) + 1376312589) & 0x7FFFFFFF);
+    index = (index << 13) ^ index;
+    return ((index * (index * index * 15731 + 789221) + 1376312589) & 0x7FFFFFFF);
 }
 
 f32
 m_randf(u32 index)
 {
-	index = (index << 13) ^ index;
-	return (((index * (index * index * 15731 + 789221) + 1376312589) & 0x7fffffff) / 1073741824.0f) * 0.5f;
+    index = (index << 13) ^ index;
+    return (((index * (index * index * 15731 + 789221) + 1376312589) & 0x7fffffff) / 1073741824.0f) * 0.5f;
 }
 
 f32
 m_sqrt(f32 number)
 {
-	int		i;
-	f32		x2, y;
+    int     i;
+    f32     x2, y;
 
-	x2 = number * 0.5f;
-	y = number;
-	i = *(int *)&y;					// evil floating point bit hack
-	i = 0x5F3759DF - (i >> 1);		// what the fuck?
-	y = *(f32 *)&i;
-	y = y * (1.5f - (x2 * y * y));	// 1st iteration
-	y = y * (1.5f - (x2 * y * y));	// 2nd iteration
+    x2 = number * 0.5f;
+    y = number;
+    i = *(int *)&y;                 // evil floating point bit hack
+    i = 0x5F3759DF - (i >> 1);      // what the fuck?
+    y = *(f32 *)&i;
+    y = y * (1.5f - (x2 * y * y));  // 1st iteration
+    y = y * (1.5f - (x2 * y * y));  // 2nd iteration
 
-	return number * y;
+    return number * y;
 }
 
 f32
 m_isqrt(f32 number)
 {
-	int		i;
-	f32		x2, y;
+    int     i;
+    f32     x2, y;
 
-	x2 = number * 0.5f;
-	y = number;
-	i = *(int *)&y;					// evil floating point bit hack
-	i = 0x5F3759DF - (i >> 1);		// what the fuck?
-	y = *(f32 *)&i;
-	y = y * (1.5f - (x2 * y * y));	// 1st iteration
-	y = y * (1.5f - (x2 * y * y));	// 2nd iteration
+    x2 = number * 0.5f;
+    y = number;
+    i = *(int *)&y;                 // evil floating point bit hack
+    i = 0x5F3759DF - (i >> 1);      // what the fuck?
+    y = *(f32 *)&i;
+    y = y * (1.5f - (x2 * y * y));  // 1st iteration
+    y = y * (1.5f - (x2 * y * y));  // 2nd iteration
 
-	return y;				// multiply by original num to reverse and get sqrt
+    return y;               // multiply by original num to reverse and get sqrt
 }
 
 #endif // MMATH_IMPL
